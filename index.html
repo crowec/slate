@@ -125,66 +125,23 @@
 <blockquote>
 <p>API endpoint</p>
 </blockquote>
-<pre class="highlight shell"><code>http://partners.api.skyscanner.net/apiservices/
-
+<pre class="highlight shell"><code>TO DO: insert link from gateway here
 </code></pre>
-<p>Skyscanner Travel APIs connect you to all the data you need to build an innovative website or app.</p>
+<p>Skyscanner APIs connect you to all the data you need to build an innovative website or app.</p>
 
 <p>Build tools that solve problems for millions of travellers and travel retail businesses around the world.</p>
 
 <aside class="notice">
-In order to use our APIs you need to contact us to request an API key via <a href="https://partners.skyscanner.net/contact/" target="_blank">the following form.</a>
+In order to use our APIs you need to contact us to request an API key via Slack #skyscanner
 <br><br>
-If you need more help you can find more information and answers to questions in our <a href='https://support.business.skyscanner.net/hc/en-us' target="_blank">FAQ</a> which we continuously update.
+If you need more help you can find more information and answers to questions in our Slack channel.
 </aside>
 
           <h1 id="authentication">Authentication</h1>
 
-<p>Skyscanner uses API keys to allow access to the APIs. To request an API key please <a href="https://partners.skyscanner.net/contact/">contact us</a>.</p>
+<p>Our new Hackaton friendly service uses keys to allow access to the APIs. To request an API key please contact us on Slack #skyscanner.</p>
 
 <p>You must include the API key in all API requests to the server, either as a parameter in the query or in the query header. Please refer to each endpoint for details.</p>
-
-<aside class="warning">
-Be careful when sharing API keys. Do not publish them in public code repositories or add them to client-side API calls. When you need to make a client-side call (e.g. redirect) please insure that you use your short API key (the first 16 characters of you key). Please note that *not* all API endpoints supports short API keys.
-</aside>
-
-<h2 id="token-generation">Token generation</h2>
-
-<p>Get authentication token. Expiration time is 30 minutes.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
-    token/v2/gettoken?
-    apiKey={apiKey}"</span>
-</code></pre>
-<p><em>API endpoint</em></p>
-
-<p><code class="prettyprint">GET /token/v2/gettoken</code></p>
-
-<p><em>REQUEST PARAMETERS</em></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">apiKey</code> <br><span class="required">REQUIRED</span></td>
-<td>Your API Key.</td>
-</tr>
-</tbody></table>
-
-<h3 id="response">Response</h3>
-
-<blockquote>
-<p>Example of token result</p>
-</blockquote>
-<pre class="highlight shell"><code>    _dR-ShOTX6w2SeENoXhHTsT9Z5N4UNqwReQqU_F8WkbgMDIuZx7ud7boHnngf4fT9bpPDFJh7nxB3hWsAT8x76w<span class="o">==</span>
-</code></pre>
-<p>A successful response contains string with token value.</p>
-
-<aside class="warning">
-Please don&rsquo;t forget to encode token with URL encoder to escape special characters before sending it as value for apiKey URL paramater.
-</aside>
 
           <h1 id="getting-started">Getting Started</h1>
 
@@ -268,16 +225,12 @@ Unless you require exact prices, we recommend you start with the cache prices AP
 </tr>
 </tbody></table>
 
-<aside class="warning">
-    This is the new Skyscanner Hotels API. Legacy documentation is available <a href="https://support.business.skyscanner.net/hc/en-us/articles/212098705-Hotels-Price-List-and-Hotels-Details-service" target="_blank">here</a>
-</aside>
-
           <h1 id="flights-browse-prices">Flights Browse Prices</h1>
 
 <h2 id="browse-quotes">Browse Quotes</h2>
 
 <p>Retrieve the cheapest quotes from our cache prices.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/browsequotes/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -449,7 +402,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-routes">Browse Routes</h2>
 
 <p>Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/apiservices/browseroutes/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -647,7 +600,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-dates">Browse Dates</h2>
 
 <p>Retrieve the cheapest dates for a given route from our cache.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/apiservices/browsedates/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -851,7 +804,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-dates-grid">Browse Dates (grid)</h2>
 
 <p>Retrieve the cheapest dates for a given route from our cache, with the results formatted as a two-dimensional array to be easily displayed as a calendar.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/browsegrid/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/apiservices/browsegrid/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -1025,7 +978,7 @@ risk of exposing account API keys.
 <h2 id="creating-the-session">Creating the session</h2>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/v1.0"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/pricing/v1.0"</span>
     -X POST
     -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
     -d <span class="s1">'cabinclass=Economy
@@ -1150,7 +1103,7 @@ risk of exposing account API keys.
 <blockquote>
 <p>Example response with polling url:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+<pre class="highlight shell"><code>Location <span class="s2">"https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}"</span>
 </code></pre>
 <p>A successful response contains no content. The URL to poll the results is provided in the Location header of the response.</p>
@@ -1180,7 +1133,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example request with polling url:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+<pre class="highlight shell"><code>Location <span class="s2">"https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}?apiKey={apiKey}
     &amp;stops=0
     &amp;duration=360
@@ -1285,7 +1238,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example polling request with pagination:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+<pre class="highlight shell"><code>Location <span class="s2">"https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}?apiKey={apiKey}
     &amp;pageIndex=0
     &amp;pageSize=10"</span>
@@ -1567,7 +1520,7 @@ Please add the no-follow attribute when you link to the deeplink. See <a href="h
 <h2 id="get-booking-details">Get booking details</h2>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/v1.0/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/pricing/v1.0/
     {SessionKey}/booking&amp;apikey={apiKey}"</span>
     -d <span class="s1">'OutboundLegId={OutboundLegId}&amp;InboundLegId={InboundLegId}'</span>
     -X PUT
@@ -1647,7 +1600,7 @@ Please add the no-follow attribute when you link to the deeplink. See <a href="h
 <blockquote>
 <p>Example response:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+<pre class="highlight shell"><code>Location <span class="s2">"https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}/booking/
     {OutboundLegId};{InboundLegId}"</span>
 </code></pre>
@@ -1883,7 +1836,7 @@ Please note that it may take up to a minute to update all the results. After you
 <p>The Poll Session (HTTP GET) should be used to poll the session at a suitable interval (e.g. every 1-3 seconds) whilst there are still updates pending.</p>
 
 <h2 id="creating-the-session">Creating the session</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/carhire/liveprices/v2/
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/carhire/liveprices/v2/
   {market}/{currency}/{locale}/
   {pickupplace}/{dropoffplace}/
   {pickupdatetime}/{dropoffdatetime}/
@@ -2008,7 +1961,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p>A note about delta results</p>
 
 <p>In your polling requests you may specify a parameter called &lsquo;deltaExcludeWebsites&rsquo;. This is a CSV or semicolon-separated list of website IDs. The server will set this in the Location headers to exclude whatever websites have finished sending results (inProgress equal to false). Excluding any given provider will remove its cars and website information from your result. Merely supplying&amp;deltaExcludeWebsites= removes all images, the query, and the car classes lookup. The Location header in the first poll will include this parameter, even if it&rsquo;s an empty string, in order that you don&rsquo;t fetch that information multiple times.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"http://partners.api.skyscanner.net/apiservices/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&amp;deltaExcludeWebsites={a,b,c...}""
+<pre class="highlight shell"><code>curl <span class="s2">"https://skyscanner.net/chiron/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&amp;deltaExcludeWebsites={a,b,c...}""
 </span></code></pre>
 <h3 id="request">Request</h3>
 
@@ -4322,6 +4275,188 @@ Is a regular practice following the user flow first of all search for prices usi
 </tr>
 </tbody></table>
 
+          <h1 id="eco-average-emissions">Eco Average Emissions</h1>
+
+<p>This is an experimental endpoint which provides you access to cached roughly calculated CO<sup>2</sup> emissions for direct flights.</p>
+
+<h2 id="single-eco-average-emissions">Single Eco Average Emissions</h2>
+
+<p>Retrieve the eco average emissions for a single direct flight.</p>
+<pre class="highlight shell"><code>GET <span class="s1">'https://skyscanner.net/chiron/
+    /eco/average-emissions?
+    apiKey={apiKey}&amp;
+    routes="{Origin, Destination}"'</span>
+</code></pre>
+<p><em>API endpoint</em></p>
+
+<p><code class="prettyprint">GET /eco/average-emissions</code></p>
+
+<p><em>Try it out</em></p>
+
+<p><a href="https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p><em>REQUEST PARAMETERS</em></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">apiKey</code> <br><span class="required">REQUIRED</span></td>
+<td>Your API Key.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routes</code> <br><span class="required">REQUIRED</span></td>
+<td>Origin and Destination</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[{</span><span class="w">
+  </span><span class="nt">"originId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">15083</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"originCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ORY"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"destinationId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11235</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"destinationCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EDI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"emissions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">11861.723</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"routeCodeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ORY,EDI"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"routeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"15083,11235"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p><em>RESPONSE PARAMETERS</em></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">originId</code></td>
+<td>Internal ID of the origin.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">originCode</code></td>
+<td>The code for the origin.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">destinationId</code></td>
+<td>Internal ID of the destination.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">desticationCode</code></td>
+<td>The code for the destination.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">emissions</code></td>
+<td>The amount of CO<sup>2</sup> emissions for the provided route.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routeCodeID</code></td>
+<td>The code for the route.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routeId</code></td>
+<td>Internal ID of the route.</td>
+</tr>
+</tbody></table>
+
+<h2 id="bulk-eco-average-emissions">Bulk Eco Average Emissions</h2>
+
+<p>Retrieve the eco average emissions for multiple direct flights.</p>
+<pre class="highlight shell"><code>GET <span class="s1">'https://skyscanner.net/chiron/
+    /eco/average-emissions?
+    apiKey={apiKey}&amp;
+    routes="{Origin1, Destination1; Origin2, Destination2;...}"'</span>
+</code></pre>
+<p><em>API endpoint</em></p>
+
+<p><code class="prettyprint">GET /eco/average-emissions</code></p>
+
+<p><em>Try it out</em></p>
+
+<p><a href="https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
+
+<p><em>REQUEST PARAMETERS</em></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">apiKey</code> <br><span class="required">REQUIRED</span></td>
+<td>Your API Key.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routes</code> <br><span class="required">REQUIRED</span></td>
+<td>Origin and Destination</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"originId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">15083</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"originCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ORY"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destinationId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11235</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destinationCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"EDI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emissions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">11861.723</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routeCodeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ORY,EDI"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"15083,11235"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"originId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">12712</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"originCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"JFK"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destinationId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13554</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"destinationCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"LHR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emissions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">139558.38</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routeCodeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"JFK,LHR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"12712,13554"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p><em>RESPONSE PARAMETERS</em></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">originId</code></td>
+<td>Internal ID of the origin.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">originCode</code></td>
+<td>The code for the origin.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">destinationId</code></td>
+<td>Internal ID of the destination.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">desticationCode</code></td>
+<td>The code for the destination.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">emissions</code></td>
+<td>The amount of CO<sup>2</sup> emissions for the provided route.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routeCodeID</code></td>
+<td>The code for the route.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">routeId</code></td>
+<td>Internal ID of the route.</td>
+</tr>
+</tbody></table>
+
           <h1 id="localisation">Localisation</h1>
 
 <p>All Skyscanner services are localised by market, language and currency, so these three parameters must be added to every request.</p>
@@ -4329,7 +4464,7 @@ Is a regular practice following the user flow first of all search for prices usi
 <h2 id="locales">Locales</h2>
 
 <p>Retrieve the locales that we support to translate your content.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     reference/v1.0/locales?
     apiKey={apiKey}"</span>
 </code></pre>
@@ -4397,7 +4532,7 @@ Is a regular practice following the user flow first of all search for prices usi
 <h2 id="currencies">Currencies</h2>
 
 <p>Retrieve the currencies that we support.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     reference/v1.0/currencies?
     apiKey={apiKey}"</span>
 </code></pre>
@@ -4461,7 +4596,7 @@ Is a regular practice following the user flow first of all search for prices usi
 <p>Retrieve the market countries that we support.</p>
 
 <p>Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     reference/v1.0/countries/
     {locale}?
     apiKey={apiKey}"</span>
@@ -4553,7 +4688,7 @@ The country and language must be included in the Autosuggest query so that the m
 <h2 id="list-of-places">List of places</h2>
 
 <p>Get a list of places that match a query string.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     autosuggest/v1.0/{country}/{currency}/{locale}?
     query={query}&amp;
     apiKey={apiKey}"</span>
@@ -4659,7 +4794,7 @@ See <a href="#token-generation">token generation</a> section for more details.
 <p><em>Try it out</em></p>
 
 <p><a href="https://app.getpostman.com/run-collection/9c973db787e866c966f2"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     autosuggest/v1.0/{market}/{currency}/{locale}?
     id={place_id}&amp;
     apiKey={apiKey}"</span>
@@ -4765,7 +4900,7 @@ Please <a href="https://partners.skyscanner.net/contact/" target="_blank"> conta
 </aside>
 
 <p>Get the full list of all the places that we support.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"http://partners.api.skyscanner.net/apiservices/
+<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
     geo/v1.0?
     apiKey={apiKey}"</span>
 </code></pre>
@@ -5205,6 +5340,32 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
           <h2 id="flights-day-view-supported-parameters-schema">Flights Day View supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/day-view
 </code></pre>
+<p>A schema definition for the flights day-view microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-day-view-supported-parameters-properties">Flights Day View supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -5687,6 +5848,32 @@ passenger</p>
           <h2 id="flights-browse-view-supported-parameters-schema">Flights Browse View supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/browse-view
 </code></pre>
+<p>A schema definition for the flights browse view microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-browse-view-supported-parameters-properties">Flights Browse View supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -6051,6 +6238,32 @@ passenger</p>
           <h2 id="flights-calendar-month-view-supported-parameters-schema">Flights Calendar Month View supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/calendar-month-view
 </code></pre>
+<p>A schema definition for the flights calendar month view microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-calendar-month-view-supported-parameters-properties">Flights Calendar Month View supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -6369,6 +6582,32 @@ passenger</p>
           <h2 id="flights-day-view-for-multicity-search-schema">Flights Day View for multicity search Schema</h2>
 <pre class="highlight plaintext"><code>/flights/multicity
 </code></pre>
+<p>A schema definition for the flights day-view microsite supported query parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-day-view-for-multicity-search-properties">Flights Day View for multicity search Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7023,6 +7262,32 @@ passenger</p>
           <h2 id="flights-home-page-supported-parameters-schema">Flights Home Page supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/home
 </code></pre>
+<p>A schema definition for the flights home page microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td><a href="flightsHomePage.json">flightsHomePage.json</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-home-page-supported-parameters-properties">Flights Home Page supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7113,6 +7378,32 @@ passenger</p>
           <h2 id="cheap-flights-to-supported-parameters-schema">Cheap Flights To supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/cheap-flights-to
 </code></pre>
+<p>A schema definition for the cheap flights to microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td><a href="cheapFlightsTo.json">cheapFlightsTo.json</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="cheap-flights-to-supported-parameters-properties">Cheap Flights To supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7226,6 +7517,32 @@ passenger</p>
           <h2 id="flights-airline-supported-parameters-schema">Flights Airline supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/flights/flights-airline
 </code></pre>
+<p>A schema definition for the flights airline microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="flights-airline-supported-parameters-properties">Flights Airline supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7362,6 +7679,32 @@ passenger</p>
           <h2 id="carhire-day-view-supported-parameters-schema">Carhire Day View supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/cars/day-view
 </code></pre>
+<p>A schema definition for the carhire day-view microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="carhire-day-view-supported-parameters-properties">Carhire Day View supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
@@ -7567,6 +7910,32 @@ passenger</p>
           <h2 id="carhire-home-page-supported-parameters-schema">Carhire Home page supported parameters Schema</h2>
 <pre class="highlight plaintext"><code>/cars/home
 </code></pre>
+<p>A schema definition for the carhire home page microsite supported parameters</p>
+
+<table><thead>
+<tr>
+<th>Abstract</th>
+<th>Extensible</th>
+<th>Status</th>
+<th>Identifiable</th>
+<th>Custom Properties</th>
+<th>Additional Properties</th>
+<th>Defined In</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Can be instantiated</td>
+<td>No</td>
+<td>Experimental</td>
+<td>No</td>
+<td>Forbidden</td>
+<td>Permitted</td>
+<td><a href="carsHome.json">carsHome.json</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="carhire-home-page-supported-parameters-properties">Carhire Home page supported parameters Properties</h2>
+
 <table><thead>
 <tr>
 <th>Property</th>
