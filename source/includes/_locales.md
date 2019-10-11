@@ -3,20 +3,19 @@
 Retrieve the locales that we support to translate your content.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    reference/v1.0/locales?
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/localisation/
+    reference/v1.0/locales"
 ```
 
 *API endpoint*
 
-`GET /reference/v1.0/locales`
+`GET /localisation/reference/v1.0/locales`
 
-*REQUEST PARAMETERS*
+*HEADERS*
 
 | Parameter | Description |
 | --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
+| ```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
 
 ```json
 {

@@ -13,11 +13,11 @@ The Poll Session (HTTP GET) should be used to poll the session at a suitable int
 ## Creating the session
 
 ```shell
-curl "https://skyscanner.net/chiron/carhire/liveprices/v2/
+curl "https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/
   {market}/{currency}/{locale}/
   {pickupplace}/{dropoffplace}/
   {pickupdatetime}/{dropoffdatetime}/
-  {driverage}?apiKey={apiKey}&userip={userip}}"
+  {driverage}?api-key={apiKey}&userip={userip}}"
   -X GET
   -H "Content-Type: application/x-www-form-urlencoded"
   -H "Accept: application/jsonp"
@@ -30,17 +30,12 @@ curl "https://skyscanner.net/chiron/carhire/liveprices/v2/
 
 `GET /carhire/liveprices/v2/{market}/{currency}/{locale}/{pickupplace}/{dropoffplace}/{pickupdatetime}/{dropoffdatetime}/{driverage}`
 
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eb787038fadc6e9607d6)
-
-or go to the [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/CarHireLivePricingQuickStart)
-
 *HEADER VALUES*
 
 | Header | Value |
 | --- | --- |
 | `Content-Type` <br><span class="required">REQUIRED</span> | `application/x-www-form-urlencoded` |
+| `api-key` <br><span class="required">REQUIRED</span> | `<<your API key>>` |
 | ```Accept```<br><span class="optional">OPTIONAL</span> | ```application/json```, ```application/jsonp``` or ```application/xml```<br>The default response format is XML |
 
 *REQUEST PARAMETERS*
@@ -56,19 +51,22 @@ or go to the [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | ```dropoffDateTime``` <br><span class="optional">OPTIONAL</span> | Date and time for dropoff. Formatted as ISO Date and Time format: `YYYY-MM-DDThh:mm` |
 | ```driverAge``` <br><span class="required">REQUIRED</span> | Must be between 21 and 75 (inclusive). |
 | ```userIp ``` <br><span class="required">REQUIRED</span> | The IP address of the end user (IPv4 only). Format: `188.39.95.93`|
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API key |
+| ```api-key``` <br><span class="required">REQUIRED</span> | Your API key |
 
 ### Response
 
 
-> Example response with polling url in the header:
+> Example response with session ID:
 
 ```shell
-Location "/apiservices/carhire/liveprices/v2/eyJvIjpbImRhdGFhcGkiLCJHQiIsImVuLUdCIiwiR0JQIiwiRURJIiwiMjAxNy0wNy0wMVQxMDowMDowMCIsIjIwMTctMDctMDdUMTc6MDA6MDAiLCJFREkiLDM1LCIxMjcuMC4wLjEiXSwibiI6LTI1OTAzfQ2?apikey=_aiX_D_g9kkg_cu_2ybJepzeH7dUcY0gh8q-oXHKdD0RuHu1itrfqIeyKIaVJ5m8vkR5euhcsN4XDFGFk1ofaDw%3D%3D&deltaExcludeWebsites=easc%2Cecon"
+{
+    "session_status": "created",
+    "session_id": "eyJvIjpbImRhdGFhcGkiLCJHQiIsImVuLUdCIiwiR0JQIiwiRURJIiwiMjAxOS0xMi0wMVQxMDowMDowMCIsIjIwMTktMTItMDdUMTc6MDA6MDAiLCJFREkiLDM1LCIxMjcuMC4wLjEiXSwibiI6MTczODF90"
+}
 ```
 
 
-A successful session creation will immediately 302 to the first poll. This poll will respond as follows, with the URL to subsequently poll the session included in the Location header.
+A successful session creation will immediately 302 to the first poll. This poll will respond as follows, with the URL to subsequently poll the session included in the response.
 <aside class="warning">
 Please refer to our <a href="#response-codes">response codes</a> in case of unsuccessful response.
 </aside>
@@ -77,7 +75,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 | Element | Detail |
 | ------- | ------ |
-| `Location Header` | Contains the URL for polling the results. |
+| `session_id` | Contains the session ID for polling the results. |
 
 
 ## Polling the results
@@ -92,7 +90,7 @@ In your polling requests you may specify a parameter called 'deltaExcludeWebsite
 
 
 ```shell
-curl "https://skyscanner.net/chiron/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&deltaExcludeWebsites={a,b,c...}""
+curl "https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&deltaExcludeWebsites={a,b,c...}""
 ```
 
 ### Request
@@ -108,13 +106,18 @@ curl "https://skyscanner.net/chiron/carhire/liveprices/v2/{sessionKey}?apiKey={a
 
 or go to the [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/CarHireLivePricingQuickStart)
 
+*HEADERS*
+
+| Key | Description |
+| --------- | ------- |
+| ```api-key``` <br><span class="required">REQUIRED</span> | ```The API key needed to access the endpoint.``` |
+
 
 *REQUEST PARAMETERS*
 
 | Parameter | Description |
 | --------- | ------- |
 | ```deltaExcludeWebsites ``` <br><span class="optional">OPTIONAL</span> | A list of website IDs whose results you want to discard, or an empty string. CSV or semicolon-separated values. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API key |
 
 
 > Example response with polling url in the header:

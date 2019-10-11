@@ -26,18 +26,21 @@ The country and language must be included in the Autosuggest query so that the m
 Get a list of places that match a query string.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    autosuggest/v1.0/{country}/{currency}/{locale}?
-    query={query}&
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/
+    places/autosuggest/v1.0/
+    {country}/{currency}/{locale}?
+    query={query}
 ```
 *API endpoint*
 
-`GET /autosuggest/v1.0/{market}/{currency}/{locale}`
+`GET /places/autosuggest/v1.0/{market}/{currency}/{locale}`
 
-*Try it out*
+*HEADERS*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9c973db787e866c966f2)
+| Key | Description |
+| --------- | ------- |
+| ```api-key``` <br><span class="required">REQUIRED</span> | ```The API key needed to access the endpoint.``` |
+
 
 *REQUEST PARAMETERS*
 
@@ -47,7 +50,6 @@ GET "https://skyscanner.net/chiron/
 | ```currency``` <br><span class="required">REQUIRED</span> | The [currency](#currencies) you want the prices in |
 | ```locale``` <br><span class="required">REQUIRED</span> | The [locale](#locales) you want the results in (ISO locale) |
 | ```query``` <br><span class="required">REQUIRED</span> | The query string, must be at least 2 characters long. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 
 > Example response for query=pari
@@ -105,18 +107,20 @@ Get information about a country, city or airport using its ID.
 
 *API endpoint*
 
-`GET /autosuggest/v1.0/{country}/{currency}/{locale}`
-
-*Try it out*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9c973db787e866c966f2)
+`GET /places/autosuggest/v1.0/{country}/{currency}/{locale}`
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    autosuggest/v1.0/{market}/{currency}/{locale}?
-    id={place_id}&
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1
+    places/autosuggest/v1.0/
+    {market}/{currency}/{locale}?
+    id={place_id}
 ```
+
+*HEADERS*
+
+| Key | Description |
+| --------- | ------- |
+| ```api-key``` <br><span class="required">REQUIRED</span> | ```The API key needed to access the endpoint.``` |
 
 *REQUEST PARAMETERS*
 
@@ -196,18 +200,19 @@ Please <a href="https://partners.skyscanner.net/contact/" target="_blank"> conta
 Get the full list of all the places that we support.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    geo/v1.0?
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/
+    places/geo/v1.0
 ```
 
 *API endpoint*
 
-`GET /geo/v1.0`
+`GET /places/geo/v1.0`
 
-*Try it out*
+*HEADERS*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9c973db787e866c966f2)
+| Key | Description |
+| --------- | ------- |
+| ```api-key``` <br><span class="required">REQUIRED</span> | ```The API key needed to access the endpoint.``` |
 
 *REQUEST PARAMETERS*
 

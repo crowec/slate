@@ -1,13 +1,6 @@
 ---
 title: API Reference
 
-toc_footers:
-  - <a href='https://partners.skyscanner.net/contact/' target="_blank">Request API key</a>
-  - <a href='https://support.business.skyscanner.net/hc/en-us' target="_blank">Find answers in our FAQ</a>
-  - <a href='https://stackoverflow.com/search?q=skyscanner+api' target="_blank">Ask on Stack Overflow</a> 
-  - <a href='https://medium.com/@SkyscannerCodevoyagers' target="_blank">Follow the Code Voyagers blog</a>
-  - <a href='https://partners.skyscanner.net/log-in/'>Sign in to your account</a>
-  - <a href='http://www.skyscanner.net/jobs/productengineering/' target="_blank">Join the team!</a>
 
 includes:
   - authentication
@@ -18,12 +11,9 @@ includes:
   - flights_browse_grid
   - flights_live_prices
   - car_hire
-  - hotels
   - eco_average_emissions
   - localisation
   - places
-  - redirects
-  - referrals
   - flights_dayView
   - flights_browseView
   - flights_calendarMonthView
