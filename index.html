@@ -2100,12 +2100,12 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="locales">Locales</h2>
 
 <p>Retrieve the locales that we support to translate your content.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/locales"</span>
 </code></pre>
 <p><em>API endpoint</em></p>
 
-<p><code class="prettyprint">GET /reference/v1.0/locales</code></p>
+<p><code class="prettyprint">GET /localisation/reference/v1.0/locales</code></p>
 
 <p><em>HEADERS</em></p>
 
@@ -2163,12 +2163,12 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="currencies">Currencies</h2>
 
 <p>Retrieve the currencies that we support.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/currencies"</span>
 </code></pre>
 <p><em>API endpoint</em></p>
 
-<p><code class="prettyprint">GET /reference/v1.0/currencies</code></p>
+<p><code class="prettyprint">GET /localisation/reference/v1.0/currencies</code></p>
 
 <p><em>HEADERS</em></p>
 
@@ -2222,7 +2222,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p>Retrieve the market countries that we support.</p>
 
 <p>Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/countries/
     {locale}"</span>
 </code></pre>
