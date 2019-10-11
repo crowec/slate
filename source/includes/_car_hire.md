@@ -13,7 +13,7 @@ The Poll Session (HTTP GET) should be used to poll the session at a suitable int
 ## Creating the session
 
 ```shell
-curl "http://partners.api.skyscanner.net/apiservices/carhire/liveprices/v2/
+curl "https://skyscanner.net/chiron/carhire/liveprices/v2/
   {market}/{currency}/{locale}/
   {pickupplace}/{dropoffplace}/
   {pickupdatetime}/{dropoffdatetime}/
@@ -92,7 +92,7 @@ In your polling requests you may specify a parameter called 'deltaExcludeWebsite
 
 
 ```shell
-curl "http://partners.api.skyscanner.net/apiservices/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&deltaExcludeWebsites={a,b,c...}""
+curl "https://skyscanner.net/chiron/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&deltaExcludeWebsites={a,b,c...}""
 ```
 
 ### Request

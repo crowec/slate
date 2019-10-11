@@ -4,6 +4,14 @@
 /cars/day-view
 ```
 
+A schema definition for the carhire day-view microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                   |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ---------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Carhire Day View supported parameters Properties
+
 | Property                      | Type      | Required     | Nullable | Defined by                                          |
 | ----------------------------- | --------- | ------------ | -------- | --------------------------------------------------- |
 | [currency](#currency)         | `string`  | Optional     | No       | Carhire Day View supported parameters (this schema) |

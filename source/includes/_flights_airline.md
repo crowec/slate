@@ -4,6 +4,14 @@
 /flights/flights-airline
 ```
 
+A schema definition for the flights airline microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                 |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ------------------------------------------ |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Flights Airline supported parameters Properties
+
 | Property                    | Type     | Required     | Nullable | Defined by                                         |
 | --------------------------- | -------- | ------------ | -------- | -------------------------------------------------- |
 | [airlineCode](#airlinecode) | `string` | **Required** | No       | Flights Airline supported parameters (this schema) |

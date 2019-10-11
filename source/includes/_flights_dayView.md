@@ -10,9 +10,7 @@ A schema definition for the flights day-view microsite supported parameters
 | ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ---------------------------- |
 | Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
 
-## Flights Day View supported parameters Properties
-
-For more details, please see our [Examples](#examples) 
+For more details, please see our [Examples](#examples)
 
 | Property                                            | Type       | Required     | Nullable | Default                                    | Defined by                                          |
 | --------------------------------------------------- | ---------- | ------------ | -------- | ------------------------------------------ | --------------------------------------------------- |
@@ -60,7 +58,7 @@ Number of adult passengers. Adults have to be 16 years old or older.
 ### airlines
 
 List of comma separated IATA carrier codes to be passed to the dayview filters. For example: &airlines=AA,KL,LH. To
-unselect airline from the filters, the code must be specified with exclamation mark. For example: &airlines=AA,!KL,!LH  
+unselect airline from the filters, the code must be specified with exclamation mark. For example: &airlines=AA,!KL,!LH
 You can search for IATA airline codes at the IATA website [here](https://www.iata.org/publications/pages/code-search.aspx)
 
 `airlines`
@@ -158,7 +156,7 @@ passenger
 
 ### currency
 
-The desired currency for the page. Examples: GBP, EUR, USD  
+The desired currency for the page. Examples: GBP, EUR, USD
 Please try to avoid using `locale`, `market` and `currency`, as these values will be governed by Skyscanner market detection logic on the Skyscanner site. If you believe you need to use these, please discuss with your account manager.
 
 The desired currency for the page. Examples: GBP, EUR, USD
@@ -260,7 +258,7 @@ Number of infant passengers. An infant is 1 year old or younger.
 
 ### locale
 
-The desired locale for the page. Examples: es-ES, en-GB, ru-RU  
+The desired locale for the page. Examples: es-ES, en-GB, ru-RU
 Please try to avoid using `locale`, `market` and `currency`, as these values will be governed by Skyscanner market detection logic on the Skyscanner site. If you believe you need to use these, please discuss with your account manager.
 
 `locale`

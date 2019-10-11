@@ -4,6 +4,14 @@
 /flights/cheap-flights-to
 ```
 
+A schema definition for the cheap flights to microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                 |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ------------------------------------------ |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             | [cheapFlightsTo.json](cheapFlightsTo.json) |
+
+## Cheap Flights To supported parameters Properties
+
 | Property                    | Type     | Required     | Nullable | Defined by                                          |
 | --------------------------- | -------- | ------------ | -------- | --------------------------------------------------- |
 | [currency](#currency)       | `string` | Optional     | No       | Cheap Flights To supported parameters (this schema) |

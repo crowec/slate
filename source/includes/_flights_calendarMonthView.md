@@ -4,6 +4,14 @@
 /flights/calendar-month-view
 ```
 
+A schema definition for the flights calendar month view microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                       |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ------------------------------------------------ |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Flights Calendar Month View supported parameters Properties
+
 | Property                        | Type      | Required     | Nullable | Defined by                                                     |
 | ------------------------------- | --------- | ------------ | -------- | -------------------------------------------------------------- |
 | [adultsv2](#adultsv2)           | `integer` | Optional     | No       | Flights Calendar Month View supported parameters (this schema) |

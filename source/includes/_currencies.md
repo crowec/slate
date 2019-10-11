@@ -3,7 +3,7 @@
 Retrieve the currencies that we support.
 
 ```shell
-GET "http://partners.api.skyscanner.net/apiservices/
+GET "https://skyscanner.net/chiron/
     reference/v1.0/currencies?
     apiKey={apiKey}"
 ```

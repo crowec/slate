@@ -4,6 +4,14 @@
 /flights/browse-view
 ```
 
+A schema definition for the flights browse view microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                         |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ---------------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Flights Browse View supported parameters Properties
+
 | Property                        | Type      | Required     | Nullable | Defined by                                             |
 | ------------------------------- | --------- | ------------ | -------- | ------------------------------------------------------ |
 | [adultsv2](#adultsv2)           | `integer` | Optional     | No       | Flights Browse View supported parameters (this schema) |
