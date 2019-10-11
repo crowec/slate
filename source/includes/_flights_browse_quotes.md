@@ -5,30 +5,27 @@
 Retrieve the cheapest quotes from our cache prices.
 
 ```shell
-curl "https://skyscanner.net/chiron/browsequotes/v1.0/{country}/{currency}/{locale}/
+curl "https://www.skyscanner.net/g/chiron/api/v1/flights/browse/browsequotes/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
-  {inboundPartialDate}?
-  apiKey={apiKey}"
+  {inboundPartialDate}"
   -X GET
   -H "Accept: application/json"
+  -H "api-key: << your api key >>"
 
 ```
 
 *API endpoint*
 
-GET `/browsequotes/v1.0/{country}/{currency}/{locale}/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}`
-
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/80ff19efbe2c736a4dfd)
+GET `/flights/browse/browsequotes/v1.0/{country}/{currency}/{locale}/{originPlace}/{destinationPlace}/{outboundPartialDate}/{inboundPartialDate}`
 
 
 *HEADER VALUES*
 
 | Header | Value |
 | --- | --- |
+| `api-key` <br><span class="required">REQUIRED</span> | `<<your API key>>` |
 | ```Accept```<br><span class="optional">OPTIONAL</span> | ```application/json``` or ```application/xml```<br>The default response format is XML |
 
 *REQUEST PARAMETERS*
@@ -42,7 +39,6 @@ GET `/browsequotes/v1.0/{country}/{currency}/{locale}/{originPlace}/{destination
 | ```destinationPlace``` <br><span class="required">REQUIRED</span> | The destination place (see [places](#places)) |
 | ```outboundPartialDate``` <br><span class="required">REQUIRED</span> | The outbound date. Format "yyyy-mm-dd", "yyyy-mm" or "anytime". |
 | ```inboundPartialDate``` <br><span class="optional">OPTIONAL</span> | The return date. Format "yyyy-mm-dd", "yyyy-mm" or "anytime". Use empty string for oneway trip. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
 
 The following tables show the level of precision supported for the origin and destination places, and the outbound and return dates:
 

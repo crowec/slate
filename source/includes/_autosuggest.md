@@ -10,26 +10,30 @@ The country and language must be included in the query so that the most relevant
 
 *API endpoint*
 
-`/autosuggest/v1.0/{country}/{currency}/{locale}`
+`/places/autosuggest/v1.0/{country}/{currency}/{locale}?`
 
 ## List of places
 
 ```shell
-GET "http://partners.api.skyscanner.net/apiservices/
-    autosuggest/v1.0/
+GET "https://www.skyscanner.net/g/chiron/api/v1/
+    places/autosuggest/v1.0/
      `{market}`/
      `{currency}`/
-      `{locale}`?
-    query={query}&
-    apiKey={apiKey}"
+     `{locale}`?
+     query={query}"
 ```
+
+*HEADERS*
+| Key | Description |
+| --------- | ------- |
+| ```api-key``` <br><span class="required">REQUIRED</span> | ```The API key needed to access the endpoint.``` |
 
 *REQUEST PARAMETERS*
 
 | Parameter | Description |
 | --------- | ------- |
 | ```query``` <br><span class="required">REQUIRED</span> | The query string, must be at least 2 characters long. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer (could be full or short). |
+| ```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer (could be full or short). |
 
 ```json
 {
@@ -74,13 +78,12 @@ GET "http://partners.api.skyscanner.net/apiservices/
 ## Place Information
 
 ```shell
-GET "http://partners.api.skyscanner.net/apiservices/
+GET "https://www.skyscanner.net/g/chiron/api/v1/
     autosuggest/v1.0/
      `{market}`/
      `{currency}`/
       `{locale}`?
-    id={place_id}&
-    apiKey={apiKey}"
+    id={place_id}"
 ```
 
 *REQUEST PARAMETERS*
@@ -88,7 +91,7 @@ GET "http://partners.api.skyscanner.net/apiservices/
 | Parameter | Description |
 | --------- | ------- |
 | ```id``` <br><span class="required">REQUIRED</span> | The place id. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer (could be full or short). |
+| ```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer (could be full or short). |
 
 > Example response for id=cdg
 

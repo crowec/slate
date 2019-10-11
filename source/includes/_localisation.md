@@ -7,25 +7,21 @@ All Skyscanner services are localised by market, language and currency, so these
 Retrieve the locales that we support to translate your content.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    reference/v1.0/locales?
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
+    reference/v1.0/locales"
 ```
 
 *API endpoint*
 
 `GET /reference/v1.0/locales`
 
-*Try it out*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3)
 
 
-*REQUEST PARAMETERS*
+*HEADERS*
 
 | Parameter | Description |
 | --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
+| ```api-key``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 > Example response
 
@@ -66,24 +62,19 @@ GET "https://skyscanner.net/chiron/
 Retrieve the currencies that we support.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    reference/v1.0/currencies?
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/
+    reference/v1.0/currencies"
 ```
 *API endpoint*
 
 `GET /reference/v1.0/currencies`
 
-*Try it out*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3)
-
-
-*REQUEST PARAMETERS*
+*HEADERS*
 
 Parameter | Description |
 --------- | ------- |
-```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
+```api-key``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 > Example response
 
@@ -120,19 +111,14 @@ Retrieve the market countries that we support.
 Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.
 
 ```shell
-GET "https://skyscanner.net/chiron/
+GET "https://www.skyscanner.net/g/chiron/api/v1/
     reference/v1.0/countries/
-    {locale}?
-    apiKey={apiKey}"
+    {locale}"
 ```
 
 *API endpoint*
 
 `GET /reference/v1.0/countries/{locale}`
-
-*Try it out*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3)
 
 
 *REQUEST PARAMETERS*
@@ -140,7 +126,7 @@ GET "https://skyscanner.net/chiron/
 | Parameter | Description |
 | --------- | ------- |
 | ```locale``` <br><span class="required">REQUIRED</span> | The language you want the results in (ISO locale). See [locales](#locales) for locales that we support. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
+| ```api-key (header, not param)``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 > Example response
 

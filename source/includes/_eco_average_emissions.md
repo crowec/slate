@@ -7,9 +7,8 @@ This is an experimental endpoint which provides you access to cached roughly cal
 Retrieve the eco average emissions for a single direct flight.
 
 ```shell
-GET 'https://skyscanner.net/chiron/
-    /eco/average-emissions?
-    apiKey={apiKey}&
+GET 'https://www.skyscanner.net/g/chiron/api/v1/
+    eco/average-emissions?
     routes="{Origin, Destination}"'
 ```
 
@@ -17,16 +16,16 @@ GET 'https://skyscanner.net/chiron/
 
 `GET /eco/average-emissions`
 
-*Try it out*
+*HEADERS*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3)
-
+Parameter | Description |
+--------- | ------- |
+```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
 
 *REQUEST PARAMETERS*
 
 | Parameter | Description |
 | --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 | ```routes``` <br><span class="required">REQUIRED</span> | Origin and Destination |
 
 > Example response
@@ -62,25 +61,24 @@ GET 'https://skyscanner.net/chiron/
 Retrieve the eco average emissions for multiple direct flights.
 
 ```shell
-GET 'https://skyscanner.net/chiron/
-    /eco/average-emissions?
-    apiKey={apiKey}&
+GET 'https://www.skyscanner.net/g/chiron/api/v1/
+    eco/average-emissions?
     routes="{Origin1, Destination1; Origin2, Destination2;...}"'
 ```
 *API endpoint*
 
 `GET /eco/average-emissions`
 
-*Try it out*
+*HEADERS*
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3)
-
+Parameter | Description |
+--------- | ------- |
+```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
 
 *REQUEST PARAMETERS*
 
 | Parameter | Description |
 | --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 | ```routes``` <br><span class="required">REQUIRED</span> | Origin and Destination |
 
 > Example response

@@ -3,19 +3,18 @@
 Retrieve the currencies that we support.
 
 ```shell
-GET "https://skyscanner.net/chiron/
-    reference/v1.0/currencies?
-    apiKey={apiKey}"
+GET "https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/
+    reference/v1.0/currencies?"
 ```
 *API endpoint*
 
 `/reference/v1.0/currencies`
 
-*REQUEST PARAMETERS*
+*HEADERS*
 
 Parameter | Description |
 --------- | ------- |
-```apiKey``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
+```api-key``` <br><span class="required">REQUIRED</span> | The API Key to identify the customer |
 
 ```json
 {

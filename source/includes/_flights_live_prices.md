@@ -14,22 +14,10 @@ risk of exposing account API keys.
 ### Request
 
 ```shell
-curl "https://skyscanner.net/chiron/pricing/v1.0"
+curl "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0"
     -X POST
     -H "Content-Type: application/x-www-form-urlencoded"
-    -d 'cabinclass=Economy
-    &country=UK
-    &currency=GBP
-    &locale=en-GB
-    &locationSchema=iata
-    &originplace=EDI
-    &destinationplace=LHR
-    &outbounddate=2017-05-30
-    &inbounddate=2017-06-02
-    &adults=1
-    &children=0
-    &infants=0
-    &apikey=prtl6749387986743898559646983194'
+    -H "api-key: << your api key >>"
 
 ```
 
@@ -38,9 +26,6 @@ curl "https://skyscanner.net/chiron/pricing/v1.0"
 `POST /pricing/v1.0`
 
 
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/31ff523d2ff9186107e1)
 
 or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart)
 
@@ -49,6 +34,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 
 | Header | Value |
 | --- | --- |
+| `api-key` <br><span class="required">REQUIRED</span> | `<<your API key>>` |
 | `Content-Type` <br><span class="required">REQUIRED</span> | `application/x-www-form-urlencoded` |
 | `X-Forwarded-For` <br><span class="required">REQUIRED</span> | user's IP address |
 | `Accept` <br><span class="optional">OPTIONAL</span> | `application/json` or `application/xml` <br>The default response format is XML |
@@ -71,7 +57,6 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | ```includeCarriers``` <br><span class="optional">OPTIONAL</span> | Only return results from those carriers. Comma-separated list of carrier ids.  |
 | ```excludeCarriers``` <br><span class="optional">OPTIONAL</span> | Filter out results from those carriers. Comma-separated list of carrier ids.  |
 | ```groupPricing``` <br><span class="optional">OPTIONAL</span> | If set to `true`, prices will be obtained for the whole passenger group and if set to `false` it will be obtained for one adult. By default it is set to `false`. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 
 ### Response
@@ -79,11 +64,12 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 > Example response with polling url:
 
 ```shell
-Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
-    {SessionKey}"
+{ 
+  "session-id": "{SessionKey}"
+}
 ```
 
-A successful response contains no content. The URL to poll the results is provided in the Location header of the response.
+A successful response contains the session ID.
 
 <aside class="warning">
 Please refer to our <a href="#response-codes">response codes</a> in case of unsuccessful response.
@@ -108,9 +94,9 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 > Example request with polling url:
 
 ```shell
-Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
-    {SessionKey}?apiKey={apiKey}
-    &stops=0
+Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0
+    {SessionKey}?
+    stops=0
     &duration=360
     &includeCarriers=ba;u2;af"
 ```
@@ -120,9 +106,6 @@ Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
 `GET /pricing/v1.0/{SessionKey}`
 
 
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/31ff523d2ff9186107e1)
 
 or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart)
 
@@ -131,6 +114,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 
 | Header | Value |
 | --- | --- |
+| `api-key` <br><span class="required">REQUIRED</span> | `<<your API key>>` |
 | `Accept` <br><span class="optional">OPTIONAL</span> | `application/json` or `application/xml` <br>The default response format is XML |
 
 *REQUEST PARAMETERS (FORM)*
@@ -151,7 +135,6 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | ```inboundDepartTime``` <br><span class="optional">OPTIONAL</span> | Filter for inbound departure time by time period of the day (i.e. morning, afternoon, evening). List of day time period delimited by ‘;’ (acceptable values are M, A, E)  |
 | ```inboundDepartStartTime``` <br><span class="optional">OPTIONAL</span> | Filter for start of range for inbound departure time. Format ‘hh:mm’. |
 | ```inboundDepartEndTime``` <br><span class="optional">OPTIONAL</span> | Filter for start of range for inbound departure time. Format ‘hh:mm’. |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 
 
 ### Pagination and payload
@@ -159,9 +142,9 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 > Example polling request with pagination:
 
 ```shell
-Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
-    {SessionKey}?apiKey={apiKey}
-    &pageIndex=0
+Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0/
+    {SessionKey}?
+    pageIndex=0
     &pageSize=10"
 ```
 
@@ -379,234 +362,3 @@ Please note that you must not force users to your [deeplink](#to-the-supplier). 
 <aside class="warning">
 Please add the no-follow attribute when you link to the deeplink. See <a href="https://support.business.skyscanner.net/hc/en-us/articles/206800309-How-do-I-add-the-nofollow-attribute-to-the-deeplinks-calls-" target="_blank">How do I add the nofollow attribute?</a> in the FAQ section.
 </aside>
-
-
-
-## Get booking details
-
-### Request
-
-```shell
-curl "https://skyscanner.net/chiron/pricing/v1.0/
-    {SessionKey}/booking&apikey={apiKey}"
-    -d 'OutboundLegId={OutboundLegId}&InboundLegId={InboundLegId}'
-    -X PUT
-    -H "Content-Type: application/x-www-form-urlencoded"
-```
-
-If you set `groupPricing` to `false` when creating the session, a Booking Details request must be made to get the deeplink with additional information such as number of passengers.
-
-> The url is provided in the response of the live prices:
-
-```json
-{
-  "BookingDetailsLink": {
-      "Uri": "/apiservices/pricing/v1.0/abb2a69708624a7ca82762ed73493598_ecilpojl_DCE634A426CBDA30CE7EA3E9068CD053/booking",
-      "Body": "OutboundLegId=11235-1705301925--32480-0-13554-1705302055&InboundLegId=13554-1706020700--32480-0-11235-1706020820",
-      "Method": "PUT"
-  }
-}
-```
-
-The full url and body content are provided in the response from the live pricing results.
-
-
-
-*API endpoint*
-
-`PUT /pricing/v1.0/{SessionKey}/booking`
-
-
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/31ff523d2ff9186107e1)
-
- or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart)
-
-*REQUEST PARAMETERS*
-
-| Parameter | Description |
-| --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
-
-*REQUEST BODY (from live pricing response)*
-
-| Parameter | Description |
-| --------- | ------- |
-| ```OutboundLegId``` <br><span class="required">REQUIRED</span> | The outbound leg Id of the itinerary |
-| ```InboundLegId``` <br><span class="optional">OPTIONAL</span> | The inbound leg Id of the itinerary for return flights |
-| ```adults``` <br><span class="optional">OPTIONAL</span> | Number of adults (16+ years). Must be between 1 and 8.  |
-| ```children``` <br><span class="optional">OPTIONAL</span> | Number of children (1-16 years). Can be between 0 and 8.  |
-| ```infants``` <br><span class="optional">OPTIONAL</span> | Number of infants (under 12 months). Can be between 0 and 8.  |
-
-
-### Response
-
-> Example response:
-
-```shell
-Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
-    {SessionKey}/booking/
-    {OutboundLegId};{InboundLegId}"
-```
-
-A successful response contains no content. The URL to poll the booking details is specified in the Location header of the response.
-
-<aside class="warning">
-Please refer to our <a href="#response-codes">response codes</a> in case of unsuccessful response.
-</aside>
-
-*RESPONSE PARAMETERS*
-
-| Element | Detail |
-| ------- | ------ |
-| `Location Header` | Contains the URL for polling the booking details results |
-
-
-
-## Polling the booking details
-
-### Request
-
-```shell
-curl "http://partners.api.skyscanner.net/{URL returned in Location header}
-    ?apiKey={apiKey}"
-    -X GET
-```
-
-<aside class="warning" name="booking-url-warning">
-Previous versions of the Flights Pricing API returned the same polling URL as the URL used to request booking details.
-<br/>
-<br/>
-<p>This will change over the second half of 2018. We recommend you use the URL returned in the <b>Location</b> header and do not make assumptions on what the URL will be.</p>
-
-<p>If you have a working integration with the Flights Pricing API and your integration is not reading the polling URL from the <b>Location</b> header, you will need to update your integration.</p>
-
-<p>If you do not update your integration, polling the booking details for a session will fail at some point during the second half of 2018.</p>
-</aside>
-
-*API endpoint*
-
-`GET /pricing/v1.0/{SessionKey}/booking/{OutboundLegId};{InboundLegId}`
-
-
-*TRY IT OUT*
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/31ff523d2ff9186107e1)
-
-or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart)
-
-
-*REQUEST PARAMETERS*
-
-| Parameter | Description |
-| --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
-
-*REQUEST BODY (from live pricing response)*
-
-| Parameter | Description |
-| --------- | ------- |
-| ```OutboundLegId``` <br><span class="required">REQUIRED</span> | The outbound leg Id of the itinerary |
-| ```InboundLegId``` <br><span class="optional">OPTIONAL</span> | The inbound leg Id of the itinerary for return flights |
-| ```adults``` <br><span class="optional">OPTIONAL</span> | Number of adults (16+ years). Must be between 1 and 8.  |
-| ```children``` <br><span class="optional">OPTIONAL</span> | Number of children (1-16 years). Can be between 0 and 8.  |
-| ```infants``` <br><span class="optional">OPTIONAL</span> | Number of infants (under 12 months). Can be between 0 and 8.  |
-
-
-
-
-### Response
-
-```json
-{
-  "Segments": [
-    {
-      "Id": 1,
-      "OriginStation": 11235,
-      "DestinationStation": 13554,
-      "DepartureDateTime": "2017-05-30T19:25:00",
-      "ArrivalDateTime": "2017-05-30T20:55:00",
-      "Carrier": 881,
-      "OperatingCarrier": 881,
-      "Duration": 90,
-      "FlightNumber": "1463",
-      "JourneyMode": "Flight",
-      "Directionality": "Outbound"
-    },
-    ...
-  ],
-  "BookingOptions": [
-    {
-      "BookingItems": [
-        {
-          "AgentID": 4499211,
-          "Status": "Current",
-          "Price": 83.41,
-          "Deeplink": "http://partners.api.skyscanner.net/apiservices/deeplink/v2?_cje=jzj5DawL5[...]",
-          "SegmentIds": [
-            1,
-            2
-          ]
-        }
-      ]
-    },
-  ],
-    "Places": [
-    {
-      "Id": 13554,
-      "ParentId": 4698,
-      "Code": "LHR",
-      "Type": "Airport",
-      "Name": "London Heathrow"
-    },
-    ...
-  ],
-  "Carriers": [
-    {
-      "Id": 881,
-      "Code": "BA",
-      "Name": "British Airways",
-      "ImageUrl": "http://s1.apideeplink.com/images/airlines/BA.png"
-    }
-  ],
-  "Query": {
-    "Country": "GB",
-    "Currency": "GBP",
-    "Locale": "en-gb",
-    "Adults": 1,
-    "Children": 0,
-    "Infants": 0,
-    "OriginPlace": "2343",
-    "DestinationPlace": "13554",
-    "OutboundDate": "2017-05-30",
-    "InboundDate": "2017-06-02",
-    "LocationSchema": "Default",
-    "CabinClass": "Economy",
-    "GroupPricing": false
-  }
- }
-```
-
-The response contains a list of itineraries with, for each one, a list of pricing options containing:
-
-* the price
-* the quote age
-* the agent selling the itinerary
-* the deeplink to the agent
-
-
-*RESPONSE PARAMETERS*
-
-| Parameter | Description |
-| ------- | ------ |
-| `SessionKey` | The Session key to identify the session. |
-| `Query` | A copy of the query which was submitted. |
-| `Status` | The status of the session – ‘UpdatesPending’ or ‘UpdatesComplete’. |
-| `Itineraries` | A list of itineraries - see below for the itinerary object. |
-| `Legs` | Details of the legs that make up the itineraries: airports, times, overall duration, stops and carrier ids. |
-| `Segements` | Details of the segments of each leg. Including the carrier (or marketing carrier) and the operating carrier. |
-| `Carriers` | Details of the carriers.  |
-| `Agents` | Details of the agents who sell the tickets. Can be an airline or a travel agent. |
-| `Places` | A list of all the places that appear in the itineraries. |
-| `Currencies` | A list of the currencies shown in the response. |
