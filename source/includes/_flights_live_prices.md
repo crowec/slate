@@ -14,7 +14,7 @@ risk of exposing account API keys.
 ### Request
 
 ```shell
-curl "http://partners.api.skyscanner.net/apiservices/pricing/v1.0"
+curl "https://skyscanner.net/chiron/pricing/v1.0"
     -X POST
     -H "Content-Type: application/x-www-form-urlencoded"
     -d 'cabinclass=Economy
@@ -79,7 +79,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 > Example response with polling url:
 
 ```shell
-Location "http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}"
 ```
 
@@ -108,7 +108,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 > Example request with polling url:
 
 ```shell
-Location "http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}?apiKey={apiKey}
     &stops=0
     &duration=360
@@ -159,7 +159,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 > Example polling request with pagination:
 
 ```shell
-Location "http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}?apiKey={apiKey}
     &pageIndex=0
     &pageSize=10"
@@ -387,7 +387,7 @@ Please add the no-follow attribute when you link to the deeplink. See <a href="h
 ### Request
 
 ```shell
-curl "http://partners.api.skyscanner.net/apiservices/pricing/v1.0/
+curl "https://skyscanner.net/chiron/pricing/v1.0/
     {SessionKey}/booking&apikey={apiKey}"
     -d 'OutboundLegId={OutboundLegId}&InboundLegId={InboundLegId}'
     -X PUT
@@ -445,7 +445,7 @@ The full url and body content are provided in the response from the live pricing
 > Example response:
 
 ```shell
-Location "http://partners.api.skyscanner.net/apiservices/pricing/uk1/v1.0/
+Location "https://skyscanner.net/chiron/pricing/uk1/v1.0/
     {SessionKey}/booking/
     {OutboundLegId};{InboundLegId}"
 ```

@@ -5,7 +5,7 @@ Retrieve the market countries that we support.
 Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.
 
 ```shell
-GET "http://partners.api.skyscanner.net/apiservices/
+GET "https://skyscanner.net/chiron/
     reference/v1.0/countries/
      `{locale}` ?
     apiKey={apiKey}"

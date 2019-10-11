@@ -19,6 +19,7 @@ includes:
   - flights_live_prices
   - car_hire
   - hotels
+  - eco_average_emissions
   - localisation
   - places
   - redirects
@@ -41,18 +42,17 @@ search: false
 > API endpoint
 
 ```shell
-http://partners.api.skyscanner.net/apiservices/
-
+TO DO: insert link from gateway here
 ```
-Skyscanner Travel APIs connect you to all the data you need to build an innovative website or app.
+Skyscanner APIs connect you to all the data you need to build an innovative website or app.
 
 Build tools that solve problems for millions of travellers and travel retail businesses around the world.
 
 
 <aside class="notice">
-In order to use our APIs you need to contact us to request an API key via <a href="https://partners.skyscanner.net/contact/" target="_blank">the following form.</a>
+In order to use our APIs you need to contact us to request an API key via Slack #skyscanner
 <br><br>
-If you need more help you can find more information and answers to questions in our <a href='https://support.business.skyscanner.net/hc/en-us' target="_blank">FAQ</a> which we continuously update.
+If you need more help you can find more information and answers to questions in our Slack channel.
 </aside>
 
 

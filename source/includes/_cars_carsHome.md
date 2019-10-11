@@ -4,6 +4,14 @@
 /cars/home
 ```
 
+A schema definition for the carhire home page microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                     |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ------------------------------ |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             | [carsHome.json](carsHome.json) |
+
+## Carhire Home page supported parameters Properties
+
 | Property              | Type     | Required   | Nullable | Defined by                                           |
 | --------------------- | -------- | ---------- | -------- | ---------------------------------------------------- |
 | [currency](#currency) | `string` | Optional   | No       | Carhire Home page supported parameters (this schema) |

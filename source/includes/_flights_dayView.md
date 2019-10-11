@@ -4,6 +4,14 @@
 /flights/day-view
 ```
 
+A schema definition for the flights day-view microsite supported parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                   |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ---------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Flights Day View supported parameters Properties
+
 | Property                                            | Type       | Required     | Nullable | Default                                    | Defined by                                          |
 | --------------------------------------------------- | ---------- | ------------ | -------- | ------------------------------------------ | --------------------------------------------------- |
 | [adultsv2](#adultsv2)                               | `integer`  | **Required** | No       | `1`                                        | Flights Day View supported parameters (this schema) |

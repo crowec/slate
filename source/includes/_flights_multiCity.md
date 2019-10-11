@@ -4,6 +4,14 @@
 /flights/multicity
 ```
 
+A schema definition for the flights day-view microsite supported query parameters
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                       |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | -------------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Permitted             |  |
+
+## Flights Day View for multicity search Properties
+
 | Property                      | Type      | Required     | Nullable | Default                                    | Defined by                                          |
 | ----------------------------- | --------- | ------------ | -------- | ------------------------------------------ | --------------------------------------------------- |
 | [adultsv2](#adultsv2)         | `integer` | **Required** | No       | `1`                                        | Flights Day View for multicity search (this schema) |

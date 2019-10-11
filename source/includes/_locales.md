@@ -3,7 +3,7 @@
 Retrieve the locales that we support to translate your content.
 
 ```shell
-GET "http://partners.api.skyscanner.net/apiservices/
+GET "https://skyscanner.net/chiron/
     reference/v1.0/locales?
     apiKey={apiKey}"
 ```
