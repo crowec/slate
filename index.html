@@ -222,7 +222,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
 <h2 id="browse-quotes">Browse Quotes</h2>
 
 <p>Retrieve the cheapest quotes from our cache prices.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/browse/browsequotes/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/browse/browsequotes/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -390,7 +390,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-routes">Browse Routes</h2>
 
 <p>Retrieve the cheapest routes from our cache prices. Similar to the Browse Quotes API but with the routes built for you from the individual quotes.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/browse/browseroutes/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/browse/browseroutes/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -584,7 +584,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-dates">Browse Dates</h2>
 
 <p>Retrieve the cheapest dates for a given route from our cache.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/browse/browsedates/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/browse/browsedates/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -784,7 +784,7 @@ Unless you require exact prices, we recommend you start with the cache prices AP
           <h2 id="browse-dates-grid">Browse Dates (grid)</h2>
 
 <p>Retrieve the cheapest dates for a given route from our cache, with the results formatted as a two-dimensional array to be easily displayed as a calendar.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/browse/browsegrid/v1.0/{country}/{currency}/{locale}/
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/browse/browsegrid/v1.0/{country}/{currency}/{locale}/
   {originPlace}/
   {destinationPlace}/
   {outboundPartialDate}/
@@ -954,7 +954,7 @@ risk of exposing account API keys.
 <h2 id="creating-the-session">Creating the session</h2>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/search/pricing/v1.0"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0"</span>
     -X POST
     -H <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>
     -H <span class="s2">"api-key: &lt;&lt; your api key &gt;&gt;"</span>
@@ -963,10 +963,6 @@ risk of exposing account API keys.
 <p><em>API endpoint</em></p>
 
 <p><code class="prettyprint">POST /pricing/v1.0</code></p>
-
-<p><em>TRY IT OUT</em></p>
-
-<p><a href="https://app.getpostman.com/run-collection/31ff523d2ff9186107e1"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 
 <p>or go to our <a href="http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart">test harness</a></p>
 
@@ -1067,10 +1063,11 @@ risk of exposing account API keys.
 <blockquote>
 <p>Example response with polling url:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"https://skyscanner.net/chiron/pricing/uk1/v1.0/
-    {SessionKey}"</span>
+<pre class="highlight shell"><code><span class="o">{</span> 
+  <span class="s2">"session-id"</span>: <span class="s2">"{SessionKey}"</span>
+<span class="o">}</span>
 </code></pre>
-<p>A successful response contains no content. The URL to poll the results is provided in the Location header of the response.</p>
+<p>A successful response contains the session ID.</p>
 
 <aside class="warning">
 Please refer to our <a href="#response-codes">response codes</a> in case of unsuccessful response.
@@ -1097,7 +1094,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example request with polling url:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/search/pricing/v1.0
+<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0
     {SessionKey}?
     stops=0
     &amp;duration=360
@@ -1106,10 +1103,6 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p><em>API endpoint</em></p>
 
 <p><code class="prettyprint">GET /pricing/v1.0/{SessionKey}</code></p>
-
-<p><em>TRY IT OUT</em></p>
-
-<p><a href="https://app.getpostman.com/run-collection/31ff523d2ff9186107e1"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 
 <p>or go to our <a href="http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart">test harness</a></p>
 
@@ -1202,7 +1195,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example polling request with pagination:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/flights/search/pricing/v1.0/
+<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0/
     {SessionKey}?
     pageIndex=0
     &amp;pageSize=10"</span>
@@ -1493,7 +1486,7 @@ Please note that it may take up to a minute to update all the results. After you
 <p>The Poll Session (HTTP GET) should be used to poll the session at a suitable interval (e.g. every 1-3 seconds) whilst there are still updates pending.</p>
 
 <h2 id="creating-the-session">Creating the session</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/carhire/liveprices/v2/
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/
   {market}/{currency}/{locale}/
   {pickupplace}/{dropoffplace}/
   {pickupdatetime}/{dropoffdatetime}/
@@ -1619,7 +1612,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p>A note about delta results</p>
 
 <p>In your polling requests you may specify a parameter called &lsquo;deltaExcludeWebsites&rsquo;. This is a CSV or semicolon-separated list of website IDs. The server will set this in the Location headers to exclude whatever websites have finished sending results (inProgress equal to false). Excluding any given provider will remove its cars and website information from your result. Merely supplying&amp;deltaExcludeWebsites= removes all images, the query, and the car classes lookup. The Location header in the first poll will include this parameter, even if it&rsquo;s an empty string, in order that you don&rsquo;t fetch that information multiple times.</p>
-<pre class="highlight shell"><code>curl <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/carhire/liveprices/v2/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&amp;deltaExcludeWebsites={a,b,c...}""
+<pre class="highlight shell"><code>curl <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/carhire/liveprices/v2/{sessionKey}?apiKey={apiKey}&amp;deltaExcludeWebsites={a,b,c...}""
 </span></code></pre>
 <h3 id="request">Request</h3>
 
@@ -1915,7 +1908,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="single-eco-average-emissions">Single Eco Average Emissions</h2>
 
 <p>Retrieve the eco average emissions for a single direct flight.</p>
-<pre class="highlight shell"><code>GET <span class="s1">'https://gateway.skyscanner.net/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s1">'https://www.skyscanner.net/g/chiron/api/v1/
     eco/average-emissions?
     routes="{Origin, Destination}"'</span>
 </code></pre>
@@ -2005,17 +1998,13 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="bulk-eco-average-emissions">Bulk Eco Average Emissions</h2>
 
 <p>Retrieve the eco average emissions for multiple direct flights.</p>
-<pre class="highlight shell"><code>GET <span class="s1">'https://gateway.skyscanner.net/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s1">'https://www.skyscanner.net/g/chiron/api/v1/
     eco/average-emissions?
     routes="{Origin1, Destination1; Origin2, Destination2;...}"'</span>
 </code></pre>
 <p><em>API endpoint</em></p>
 
 <p><code class="prettyprint">GET /eco/average-emissions</code></p>
-
-<p><em>Try it out</em></p>
-
-<p><a href="https://app.getpostman.com/run-collection/e9563a0d506b15cf35d3"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
 
 <p><em>HEADERS</em></p>
 
@@ -2111,7 +2100,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="locales">Locales</h2>
 
 <p>Retrieve the locales that we support to translate your content.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/pricing/v1.0/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
     reference/v1.0/locales"</span>
 </code></pre>
 <p><em>API endpoint</em></p>
@@ -2174,15 +2163,14 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <h2 id="currencies">Currencies</h2>
 
 <p>Retrieve the currencies that we support.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
-    reference/v1.0/currencies?
-    apiKey={apiKey}"</span>
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
+    reference/v1.0/currencies"</span>
 </code></pre>
 <p><em>API endpoint</em></p>
 
 <p><code class="prettyprint">GET /reference/v1.0/currencies</code></p>
 
-<p><em>REQUEST PARAMETERS</em></p>
+<p><em>HEADERS</em></p>
 
 <table><thead>
 <tr>
@@ -2191,7 +2179,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">apiKey</code> <br><span class="required">REQUIRED</span></td>
+<td><code class="prettyprint">api-key</code> <br><span class="required">REQUIRED</span></td>
 <td>Your API Key.</td>
 </tr>
 </tbody></table>
@@ -2234,10 +2222,9 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <p>Retrieve the market countries that we support.</p>
 
 <p>Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://skyscanner.net/chiron/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
     reference/v1.0/countries/
-    {locale}?
-    apiKey={apiKey}"</span>
+    {locale}"</span>
 </code></pre>
 <p><em>API endpoint</em></p>
 
@@ -2256,7 +2243,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <td>The language you want the results in (ISO locale). See <a href="#locales">locales</a> for locales that we support.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">apiKey</code> <br><span class="required">REQUIRED</span></td>
+<td><code class="prettyprint">api-key (header, not param)</code> <br><span class="required">REQUIRED</span></td>
 <td>Your API Key.</td>
 </tr>
 </tbody></table>
@@ -2322,7 +2309,7 @@ The country and language must be included in the Autosuggest query so that the m
 <h2 id="list-of-places">List of places</h2>
 
 <p>Get a list of places that match a query string.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
     places/autosuggest/v1.0/
     {country}/{currency}/{locale}?
     query={query}
@@ -2430,7 +2417,7 @@ See <a href="#token-generation">token generation</a> section for more details.
 <p><em>API endpoint</em></p>
 
 <p><code class="prettyprint">GET /places/autosuggest/v1.0/{country}/{currency}/{locale}</code></p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1
     places/autosuggest/v1.0/
     {market}/{currency}/{locale}?
     id={place_id}
@@ -2550,7 +2537,7 @@ Please <a href="https://partners.skyscanner.net/contact/" target="_blank"> conta
 </aside>
 
 <p>Get the full list of all the places that we support.</p>
-<pre class="highlight shell"><code>GET <span class="s2">"https://gateway.skyscanner.net/chiron/api/v1/
+<pre class="highlight shell"><code>GET <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/
     places/geo/v1.0
 </span></code></pre>
 <p><em>API endpoint</em></p>
