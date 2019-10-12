@@ -23,7 +23,7 @@ curl "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0"
 
 *API endpoint*
 
-`POST /pricing/v1.0`
+`POST /flights/search/pricing/v1.0`
 
 
 *HEADER VALUES*
@@ -95,7 +95,7 @@ Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0
 
 *API endpoint*
 
-`GET /pricing/v1.0/{SessionKey}`
+`GET /pricing/v1.0/`
 
 
 
@@ -109,10 +109,11 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | `api-key` <br><span class="required">REQUIRED</span> | `<<your API key>>` |
 | `Accept` <br><span class="optional">OPTIONAL</span> | `application/json` or `application/xml` <br>The default response format is XML |
 
-*REQUEST PARAMETERS (FORM)*
+*REQUEST PARAMETERS*
 
 | Parameter | Description |
 | --------- | ------- |
+| ```session-id``` <br><span class="required">REQUIRED</span> | The session ID from the POST request |
 | ```sortType``` <br><span class="optional">OPTIONAL</span> | The parameter to sort results on. Can be carrier, duration, outboundarrivetime, outbounddeparttime, inboundarrivetime, inbounddeparttime, price |
 | ```sortOrder``` <br><span class="optional">OPTIONAL</span> | The sort order. 'asc' or 'desc' |
 | ```duration``` <br><span class="optional">OPTIONAL</span> | Filter for maximum duration in minutes. Integer between 0 and 1800  |

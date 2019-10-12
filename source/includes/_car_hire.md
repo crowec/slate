@@ -5,7 +5,7 @@ Retrieve live prices for car hire providers.
 The live updates are performed asynchronously so you need to create a session and then poll for updates.
 Please note that it may take up to a minute to update all the results. After you create a session, you will immediately get the results of the first poll.
 
-The Create Session request (HTTP GET) contains all query parameters, such as pickup and dropoff locations. The URL which should be used to poll the session is returned in the HTTP Response Header "Location".
+The Create Session request (HTTP POST) contains all query parameters, such as pickup and dropoff locations. The URL which should be used to poll the session is returned in the HTTP Response Header "Location".
 
 The Poll Session (HTTP GET) should be used to poll the session at a suitable interval (e.g. every 1-3 seconds) whilst there are still updates pending.
 
@@ -18,7 +18,7 @@ curl "https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/
   {pickupplace}/{dropoffplace}/
   {pickupdatetime}/{dropoffdatetime}/
   {driverage}?api-key={apiKey}&userip={userip}}"
-  -X GET
+  -X POST
   -H "Content-Type: application/x-www-form-urlencoded"
   -H "Accept: application/jsonp"
 
@@ -28,7 +28,7 @@ curl "https://www.skyscanner.net/g/chiron/api/v1/carhire/liveprices/v2/
 
 *API endpoint*
 
-`GET /carhire/liveprices/v2/{market}/{currency}/{locale}/{pickupplace}/{dropoffplace}/{pickupdatetime}/{dropoffdatetime}/{driverage}`
+`POST /carhire/liveprices/v2/{market}/{currency}/{locale}/{pickupplace}/{dropoffplace}/{pickupdatetime}/{dropoffdatetime}/{driverage}`
 
 *HEADER VALUES*
 
