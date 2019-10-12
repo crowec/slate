@@ -26,10 +26,6 @@ curl "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0"
 `POST /pricing/v1.0`
 
 
-
-or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart)
-
-
 *HEADER VALUES*
 
 | Header | Value |
@@ -39,7 +35,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | `X-Forwarded-For` <br><span class="required">REQUIRED</span> | user's IP address |
 | `Accept` <br><span class="optional">OPTIONAL</span> | `application/json` or `application/xml` <br>The default response format is XML |
 
-*REQUEST PARAMETERS (FORM)*
+*REQUEST BODY*
 
 | Parameter | Description |
 | --------- | ------- |
@@ -48,6 +44,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 | ```locale``` <br><span class="required">REQUIRED</span> | The [locale](#locales) you want the results in (ISO locale) |
 | ```originPlace``` <br><span class="required">REQUIRED</span> | The origin place (see [places](#places)) |
 | ```destinationPlace``` <br><span class="required">REQUIRED</span> | The destination place (see [places](#places)) |
+| ```locationSchema``` <br><span class="required">REQUIRED</span> | The location schema for origin/destionation. Use `"iata"`) |
 | ```outboundDate``` <br><span class="required">REQUIRED</span> | The outbound date. Format "yyyy-mm-dd". |
 | ```inboundDate``` <br><span class="optional">OPTIONAL</span> | The return date. Format "yyyy-mm-dd". Use empty string for oneway trip. |
 | ```cabinClass``` <br><span class="optional">OPTIONAL</span> | The cabin class. Can be "Economy", "PremiumEconomy", "Business", "First"  |
@@ -79,12 +76,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 | Element | Detail |
 | ------- | ------ |
-| `Location Header` | Contains the URL for polling the results in the newly created session |
-
-
-
-
-
+| `session-id` | Contains the session id for polling the results in the newly created session |
 
 
 ## Polling the results
@@ -94,9 +86,9 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 > Example request with polling url:
 
 ```shell
-Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0
-    {SessionKey}?
-    stops=0
+Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0?
+    session_id={SessionKey}
+    &stops=0
     &duration=360
     &includeCarriers=ba;u2;af"
 ```
@@ -142,9 +134,9 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 > Example polling request with pagination:
 
 ```shell
-Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0/
-    {SessionKey}?
-    pageIndex=0
+Location "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0?
+    session_id={SessionKey}
+    &pageIndex=0
     &pageSize=10"
 ```
 
