@@ -218,7 +218,6 @@ GET "https://www.skyscanner.net/g/chiron/api/v1/
 
 | Parameter | Description |
 | --------- | ------- |
-| ```apiKey``` <br><span class="required">REQUIRED</span> | Your API Key. |
 | ```languageid``` | A locale in ISO format, for example ```fr-FR``` |
 
 > Response extract:
