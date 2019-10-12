@@ -964,8 +964,6 @@ risk of exposing account API keys.
 
 <p><code class="prettyprint">POST /pricing/v1.0</code></p>
 
-<p>or go to our <a href="http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart">test harness</a></p>
-
 <p><em>HEADER VALUES</em></p>
 
 <table><thead>
@@ -992,7 +990,7 @@ risk of exposing account API keys.
 </tr>
 </tbody></table>
 
-<p><em>REQUEST PARAMETERS (FORM)</em></p>
+<p><em>REQUEST BODY</em></p>
 
 <table><thead>
 <tr>
@@ -1019,6 +1017,10 @@ risk of exposing account API keys.
 <tr>
 <td><code class="prettyprint">destinationPlace</code> <br><span class="required">REQUIRED</span></td>
 <td>The destination place (see <a href="#places">places</a>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">locationSchema</code> <br><span class="required">REQUIRED</span></td>
+<td>The location schema for origin/destionation. Use <code class="prettyprint">&quot;iata&quot;</code>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">outboundDate</code> <br><span class="required">REQUIRED</span></td>
@@ -1082,8 +1084,8 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Location Header</code></td>
-<td>Contains the URL for polling the results in the newly created session</td>
+<td><code class="prettyprint">session-id</code></td>
+<td>Contains the session id for polling the results in the newly created session</td>
 </tr>
 </tbody></table>
 
@@ -1094,9 +1096,9 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example request with polling url:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0
-    {SessionKey}?
-    stops=0
+<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0?
+    session_id={SessionKey}
+    &amp;stops=0
     &amp;duration=360
     &amp;includeCarriers=ba;u2;af"</span>
 </code></pre>
@@ -1195,9 +1197,9 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 <blockquote>
 <p>Example polling request with pagination:</p>
 </blockquote>
-<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0/
-    {SessionKey}?
-    pageIndex=0
+<pre class="highlight shell"><code>Location <span class="s2">"https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0?
+    session_id={SessionKey}
+    &amp;pageIndex=0
     &amp;pageSize=10"</span>
 </code></pre>
 <p>If you want to supply results in pages, rather than show all the results available, you can use the parameters below.</p>
