@@ -7,13 +7,13 @@ All Skyscanner services are localised by market, language and currency, so these
 Retrieve the locales that we support to translate your content.
 
 ```shell
-GET "https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
+GET "https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/locales"
 ```
 
 *API endpoint*
 
-`GET /reference/v1.0/locales`
+`GET /localisation/reference/v1.0/locales`
 
 
 
@@ -62,12 +62,12 @@ GET "https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
 Retrieve the currencies that we support.
 
 ```shell
-GET "https://www.skyscanner.net/g/chiron/api/v1/
+GET "https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/currencies"
 ```
 *API endpoint*
 
-`GET /reference/v1.0/currencies`
+`GET /localisation/reference/v1.0/currencies`
 
 
 *HEADERS*
@@ -111,7 +111,7 @@ Retrieve the market countries that we support.
 Most suppliers (airlines, travel agents and car hire dealers) set their fares based on the market (or country of purchase). It is therefore necessary to specify the market country in every query.
 
 ```shell
-GET "https://www.skyscanner.net/g/chiron/api/v1/
+GET "https://www.skyscanner.net/g/chiron/api/v1/localisation/
     reference/v1.0/countries/
     {locale}"
 ```
