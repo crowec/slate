@@ -32,7 +32,7 @@ search: false
 > API endpoint
 
 ```shell
-TO DO: insert link from gateway here
+https://www.skyscanner.net/g/chiron/api/v1/
 ```
 Skyscanner APIs connect you to all the data you need to build an innovative website or app.
 
