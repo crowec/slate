@@ -12,7 +12,7 @@ GET "https://www.skyscanner.net/g/chiron/api/v1/pricing/v1.0/
 
 *API endpoint*
 
-`/reference/v1.0/countries`
+`/localisation/reference/v1.0/countries`
 
 *HEADER VALUES*
 
