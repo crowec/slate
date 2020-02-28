@@ -118,7 +118,7 @@ GET "https://www.skyscanner.net/g/chiron/api/v1/localisation/
 
 *API endpoint*
 
-`GET /reference/v1.0/countries/{locale}`
+`GET /localisation/reference/v1.0/countries/{locale}`
 
 
 *REQUEST PARAMETERS*
