@@ -188,14 +188,11 @@ GET "https://www.skyscanner.net/g/chiron/api/v1
 
 <aside class="notice">
 You can use this endpoint to retrieve the user's location from their IP address:
-<code>http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/UK/GBP/en-GB?id=188.39.95.140-ip&apikey=&lt;apiKey&gt;</code>
+<code>https://www.skyscanner.net/g/chiron/api/v1/places/autosuggest/v1.0/UK/GBP/en-GB?id=188.39.95.140-ip&apikey=&lt;apiKey&gt;</code>
 </aside>
 
 ## Geo Catalog
 
-<aside class="warning">
-Please <a href="https://partners.skyscanner.net/contact/" target="_blank"> contact us</a> to request access.
-</aside>
 
 Get the full list of all the places that we support.
 
