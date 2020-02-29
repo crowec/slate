@@ -61,8 +61,8 @@ curl "https://www.skyscanner.net/g/chiron/api/v1/flights/search/pricing/v1.0"
 > Example response with polling url:
 
 ```shell
-{ 
-  "session-id": "{SessionKey}"
+{
+  "session_id": "{SessionKey}"
 }
 ```
 
@@ -76,7 +76,7 @@ Please refer to our <a href="#response-codes">response codes</a> in case of unsu
 
 | Element | Detail |
 | ------- | ------ |
-| `session-id` | Contains the session id for polling the results in the newly created session |
+| `session_id` | Contains the session id for polling the results in the newly created session |
 
 
 ## Polling the results
@@ -113,7 +113,7 @@ or go to our [test harness](http://business.skyscanner.net/portal/en-GB/Document
 
 | Parameter | Description |
 | --------- | ------- |
-| ```session-id``` <br><span class="required">REQUIRED</span> | The session ID from the POST request |
+| ```session_id``` <br><span class="required">REQUIRED</span> | The session ID from the POST request |
 | ```sortType``` <br><span class="optional">OPTIONAL</span> | The parameter to sort results on. Can be carrier, duration, outboundarrivetime, outbounddeparttime, inboundarrivetime, inbounddeparttime, price |
 | ```sortOrder``` <br><span class="optional">OPTIONAL</span> | The sort order. 'asc' or 'desc' |
 | ```duration``` <br><span class="optional">OPTIONAL</span> | Filter for maximum duration in minutes. Integer between 0 and 1800  |
