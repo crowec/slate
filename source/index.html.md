@@ -14,6 +14,7 @@ includes:
   - eco_average_emissions
   - localisation
   - places
+  - referrals
   - flights_dayView
   - flights_browseView
   - flights_calendarMonthView
